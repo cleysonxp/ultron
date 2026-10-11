@@ -1,4 +1,3 @@
-
 import type { WeatherInfo } from '../services/weatherService'
 
 interface WeatherPanelProps {

@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react'
 import './App.css'
 import { getSystemInfo, type SystemInfo } from './services/systemService'
