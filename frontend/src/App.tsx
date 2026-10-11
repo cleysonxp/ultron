@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import { getSystemInfo, type SystemInfo } from './services/systemService'
 import { getWeather, type WeatherInfo } from './services/weatherService'
+import WeatherPanel from './components/WeatherPanel'
 
 function App() {
   const [system, setSystem] = useState<SystemInfo | null>(null)
@@ -50,28 +51,7 @@ function App() {
           </div>
         )}
 
-        <section className="weather-panel">
-          <h2>WEATHER</h2>
-
-          {weatherError ? (
-            <p>Weather data unavailable</p>
-          ) : weather ? (
-            <>
-              <h3>{weather.location}</h3>
-              <p className="weather-temperature">
-                {weather.temperature.toLocaleString('pt-BR')}°C
-              </p>
-              <p>Feels like {weather.feels_like}°C</p>
-              <p>Humidity: {weather.humidity}%</p>
-              <p>Wind: {weather.wind_speed} km/h</p>
-              <p>
-                {weather.is_day ? 'DAYTIME' : 'NIGHTTIME'}
-              </p>
-            </>
-          ) : (
-            <p>Loading weather...</p>
-          )}
-        </section>
+        <WeatherPanel weather={weather} error={weatherError} />
       </div>
     </main>
   )

@@ -1,3 +1,4 @@
+const API_URL = import.meta.env.VITE_API_URL
 
 export interface SystemInfo {
   name: string
@@ -7,7 +8,7 @@ export interface SystemInfo {
 }
 
 export async function getSystemInfo(): Promise<SystemInfo> {
-  const response = await fetch('http://localhost:8000/api/system')
+  const response = await fetch(`${API_URL}/api/system`)
 
   if (!response.ok) {
     throw new Error('Failed to fetch system information')
