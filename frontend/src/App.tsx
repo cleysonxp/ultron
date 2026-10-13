@@ -3,6 +3,7 @@ import './App.css'
 import { getSystemInfo, type SystemInfo } from './services/systemService'
 import { getWeather, type WeatherInfo } from './services/weatherService'
 import WeatherPanel from './components/WeatherPanel'
+import ChatPanel from './components/ChatPanel'
 
 function App() {
   const [system, setSystem] = useState<SystemInfo | null>(null)
@@ -51,6 +52,8 @@ function App() {
         )}
 
         <WeatherPanel weather={weather} error={weatherError} />
+        <ChatPanel />
+
       </div>
     </main>
   )
